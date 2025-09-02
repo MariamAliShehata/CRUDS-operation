@@ -1,0 +1,28 @@
+
+
+#total::before{
+    content: "Total: ";
+}
+#create , #searchTitle , #searchCatagory , #deleteAllBtn{
+    transition: 0.5s;
+}
+button:hover{
+    letter-spacing: 1px;
+    
+
+}
+.text-gradient {
+    background: -webkit-linear-gradient(315deg, #4d5bf6 0%, #e50438 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glow {
+    
+    text-shadow: 0 0 20px gold, 0 0 30px yellow, 0 0 50px orange;
+    transition: all 0.3s ease;
+}
+
+.bi-lamp-fill {
+    transition: all 0.3s ease;
+}

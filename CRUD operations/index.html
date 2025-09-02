@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>CRUD</title>
+</head>
+<body data-bs-theme = "dark" id="pageBody">
+    <div class="position-fixed d-flex">
+        <i class="bi bi-lamp-fill fs-1 ms-2 lamp-head "  id="lampIcon"></i>
+        <button class="btn rounded-circle border-0 mt-4" onclick="onOff()"> <i class="bi bi-nintendo-switch"></i></button>
+    </div>
+
+    <div class="container my-5 ">
+        <div class="text-center my-5">
+            <h1 class="display-5 fw-bolder ">
+                <span class="d-inline text-gradient ">CRUDS</span>
+            </h1>
+            <h3 class="display-5 fw-bolder ">
+                <span class="d-inline text-gradient ">Product Management System</span>
+            </h3>
+        </div>
+        <div class="d-flex flex-column gap-4 mb-4 inputs">
+            <input type="text" placeholder="title" id="title" class="form-control rounded-3 shadow-sm">
+            <div class="d-md-flex  gap-3 ">
+                <input onkeyup="getTotal()" type="number" placeholder="price" id="price" class="form-control rounded-3 shadow-sm mb-md-0 mb-3">
+                <input onkeyup="getTotal()" type="number" placeholder="taxes" id="taxes" class="form-control rounded-3 shadow-sm mb-md-0 mb-3">
+                <input onkeyup="getTotal()" type="number" placeholder="ads" id="ads" class="form-control rounded-3 shadow-sm mb-md-0 mb-3">
+                <input onkeyup="getTotal()" type="number" placeholder="discount" id="discount" class="form-control rounded-3 shadow-sm mb-md-0 mb-3">
+                <small id="total" class="btn btn-danger form-control mb-md-0 mb-3"></small>
+            </div>
+            <div class="d-flex gap-5 ">
+                <input type="number" placeholder="count" id="count" class="form-control rounded-3 shadow-sm ">
+                <input type="text" placeholder="catagory" id="catagory" class="form-control rounded-3 shadow-sm">
+            </div>
+
+            <button class="btn btn-primary " id="create" onclick="addProduct()">Create</button>
+        </div>
+        <div class="d-flex flex-column gap-4 mb-4">
+            <div class="d-flex flex-column gap-4 mb-4">
+                <input type="text" placeholder="search" id="search" class="form-control rounded-3 shadow-sm " onkeyup="searchData(this.value)" >
+                <div class="d-md-flex gap-5">
+                    <button class="btn btn-primary form-control mb-md-0 mb-3" onclick="getSearchMood(this.id)" id="searchTitle">Search By Title</button>
+                    <button class="btn btn-primary form-control mb-md-0 mb-3" onclick="getSearchMood(this.id)" id="searchCatagory">Search By Catagory</button>
+                </div>
+                
+            </div>
+            <div id="deleteAll" ></div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover  mt-5">
+                    <thead>
+                        <th class="col text-uppercase">id</th>
+                        <th class="col text-uppercase">title</th>
+                        <th class="col text-uppercase">price</th>
+                        <th class="col text-uppercase">taxes</th>
+                        <th class="col text-uppercase">ads</th>
+                        <th class="col text-uppercase">discount</th>
+                        <th class="col text-uppercase">total</th>
+                        <th class="col text-uppercase">catagory</th>
+                        <th class="col text-uppercase">update</th>
+                        <th class="col text-uppercase">delete</th>
+                    </thead>
+                    <tbody id="tbody">
+                    
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
