@@ -249,8 +249,8 @@ function showModal() {
         const modalEl = document.getElementById("confirmDeleteModal");
         const modal = new bootstrap.Modal(modalEl);
 
-        const confirmBtn = modalEl.getElementById("deleteBtn");
-        const cancelBtn = modalEl.getElementById("cancelBtn");
+        const confirmBtn = modalEl.querySelector("#deleteBtn");
+        const cancelBtn = modalEl.querySelector("#cancelBtn");
 
         
         confirmBtn.onclick = () => {
@@ -265,10 +265,7 @@ function showModal() {
         };
 
         
-        modalEl.addEventListener("hidden.bs.modal", () => {
-            resolve(false);
-        }, { once: true });
-
+        
         modal.show();
     });
 }
