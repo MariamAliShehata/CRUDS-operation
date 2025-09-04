@@ -120,16 +120,23 @@ function displayData(){
     }
 }
 
-function deleteData(i){
-    products.splice(i , 1);
-    localStorage.ourProducts = JSON.stringify(products);
-    displayData();
+async function deleteData(i) {
+    const confirmed = await showModal();
+    if (confirmed) {
+        products.splice(i, 1);
+        localStorage.setItem("ourProducts", JSON.stringify(products));
+        displayData();
+    }
 }
 
-function deleteAll(){
-    products = [];
-    localStorage.ourProducts = JSON.stringify(products);
-    displayData();
+
+async function deleteAll() {
+    const confirmed = await showModal();
+    if (confirmed) {
+        products = [];
+        localStorage.setItem("ourProducts", JSON.stringify(products));
+        displayData();
+    }
 }
 
 function updateData(i){
@@ -236,4 +243,36 @@ function onOff() {
     }
     
 }
+
+function showModal() {
+    return new Promise((resolve) => {
+        const modalEl = document.getElementById("confirmDeleteModal");
+        const modal = new bootstrap.Modal(modalEl);
+
+        const confirmBtn = modalEl.getElementById("deleteBtn");
+        const cancelBtn = modalEl.getElementById("cancelBtn");
+
+        
+        confirmBtn.onclick = () => {
+            modal.hide();
+            resolve(true);
+        };
+
+        
+        cancelBtn.onclick = () => {
+            modal.hide();
+            resolve(false);
+        };
+
+        
+        modalEl.addEventListener("hidden.bs.modal", () => {
+            resolve(false);
+        }, { once: true });
+
+        modal.show();
+    });
+}
+
+
+
 
